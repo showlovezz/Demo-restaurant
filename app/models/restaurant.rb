@@ -6,4 +6,7 @@ class Restaurant < ApplicationRecord
 	# 上傳照片
 	mount_uploader :image, PhotoUploader
 
+	# 設定 Model 關聯
+	belongs_to :category, optional: true
+
 end
