@@ -27,7 +27,8 @@
           <tr>
             <th>#</th>
             <th>Category Name</th>
-            <th>#</th> 
+            <th>Edit</th>
+            <th>Delete</th>
           </tr>
         </thead>
 
@@ -41,6 +42,7 @@
                 <!-- index 就能判斷是edit or new，而印出對應的form表單 -->
                 <%= link_to 'Edit', admin_categories_path(id: category.id) %>
               </td>
+              <td><%= link_to 'Delete', admin_category_path(category), method: :delete, data: {confirm: "Are you sure ?"} %></td>
             </tr>
           <% end %>
         </tbody>
