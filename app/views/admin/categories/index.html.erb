@@ -13,6 +13,9 @@
         <%= f.text_field :name, placeholder: "Category name", class: "form-control" %>
       </div>
       <%= f.submit class: "btn btn-primary" %>
+      <% if @category.errors.any? %>
+        <span class="label label-danger"><%= @category.errors.full_messages.to_sentence %></span>
+      <% end %>
     <% end %>
   </div>
   <br>
