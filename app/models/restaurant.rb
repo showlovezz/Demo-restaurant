@@ -9,4 +9,7 @@ class Restaurant < ApplicationRecord
 	# 設定 Model 關聯
 	belongs_to :category, optional: true
 
+	# 避免刪除category後，後續顯示的部分會有問題
+	delegate :name, to: :category, prefix: true, allow_nil: true
+
 end
