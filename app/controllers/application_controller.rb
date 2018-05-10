@@ -1,13 +1,15 @@
 class ApplicationController < ActionController::Base
-  protect_from_forgery with: :exception
+	protect_from_forgery with: :exception
+  	# 驗證請求進入後台的是否為已登入的 User
+	before_action :authenticate_user!
 
-  private
+  	private
 
-  def authenticate_admin
-  	unless current_user.admin?
-  		flash[:alert] = "Not allow"
-  		redirect_to root_path
-  	end
-  end
+	def authenticate_admin
+		unless current_user.admin?
+			flash[:alert] = "Not allow"
+			redirect_to root_path
+		end
+	end
 
 end
