@@ -25,6 +25,10 @@
 
 .restaurant-item a {
   color: black;
+  text-decoration: none;
+}
+.restaurant-item a:hover {
+  color: #FF5511;
 }
 
 .bl {
