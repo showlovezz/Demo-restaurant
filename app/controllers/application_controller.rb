@@ -3,13 +3,4 @@ class ApplicationController < ActionController::Base
   	# 驗證請求進入後台的是否為已登入的 User
 	before_action :authenticate_user!
 
-  	private
-
-	def authenticate_admin
-		unless current_user.admin?
-			flash[:alert] = "Not allow"
-			redirect_to root_path
-		end
-	end
-
 end
