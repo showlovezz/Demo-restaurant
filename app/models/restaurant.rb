@@ -12,4 +12,7 @@ class Restaurant < ApplicationRecord
 	# 避免刪除category後，後續顯示的部分會有問題
 	delegate :name, to: :category, prefix: true, allow_nil: true
 
+	# 每家餐廳擁有很多評論
+	has_many :comments
+
 end
