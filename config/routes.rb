@@ -13,6 +13,12 @@ Rails.application.routes.draw do
     member do
       get :dashboard
     end
+
+    # 收藏 / 取消收藏
+    member do
+      post :favorite
+      post :unfavorite
+    end
   end
   
   resources :categories, only: [:show]
