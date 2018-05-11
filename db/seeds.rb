@@ -8,6 +8,10 @@
 
 # Category
 Category.destroy_all
+User.destroy_all
+Restaurant.destroy_all
+
+Category.destroy_all
 
 category_list = [
   { name: "中式料理" },
@@ -25,5 +29,5 @@ end
 
 puts "Category created!"
 
-User.create(email: "root@admin.com", password: "12345678", role: "admin")
+User.create(email: "root@admin.com", password: "12345678", role: "admin", name: "root")
 puts "Default admin created!"
