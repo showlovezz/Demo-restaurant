@@ -14,7 +14,11 @@ class User < ApplicationRecord
   has_many :comments, dependent: :restrict_with_error
 
   # 一個 User 評論過很多 Restaurant，一個 Restaurant 被很多個 User 評論
-  has_many :restaurants, through: :comments
+  has_many :commented_restaurants, through: :comments, source: :restaurant
+
+  # 「使用者收藏很多餐廳」的多對多關聯
+  has_many :favorites, dependent: :destroy
+  has_many :favorited_restaurants, through: :favorites, source: :restaurant
 
   def admin?
   	self.role == "admin"
