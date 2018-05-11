@@ -10,6 +10,9 @@ class User < ApplicationRecord
   # 上傳照片 將 AvatarUploader 掛載到 User Model
   mount_uploader :avatar, AvatarUploader
 
+  # 驗證名稱，必須必填
+  validates_presence_of :name
+
   def admin?
   	self.role == "admin"
   end
