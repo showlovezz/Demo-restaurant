@@ -13,6 +13,9 @@ class User < ApplicationRecord
   # 驗證名稱，必須必填
   validates_presence_of :name
 
+  # 一個 User 評論過很多 Restaurant，一個 Restaurant 被很多個 User 評論
+  has_many :restaurants, through: :comments
+
   def admin?
   	self.role == "admin"
   end

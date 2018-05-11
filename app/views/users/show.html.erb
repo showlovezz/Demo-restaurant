@@ -19,7 +19,16 @@
 				</div>
 				<div class="clearfix"></div>
 			</div>
-			<br>	
+			<br>
+
+			<div>
+				<!-- 顯示已評論餐廳的清單 -->
+				<div>
+					<% @commented_restaurants.each do |restaurant| %>
+						<h5><%= restaurant.name %></h5>
+					<% end %>
+				</div>
+			</div>
 		</div>
 
 	</div>
