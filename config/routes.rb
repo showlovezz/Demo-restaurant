@@ -19,6 +19,12 @@ Rails.application.routes.draw do
       post :favorite
       post :unfavorite
     end
+
+    # 喜歡 / 取消喜歡
+    member do
+      post :like
+      post :unlike
+    end
   end
   
   resources :categories, only: [:show]
