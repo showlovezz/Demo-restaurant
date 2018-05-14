@@ -30,9 +30,11 @@ Rails.application.routes.draw do
       post :unlike
     end
   end
+
+  resources :followships, only: [:create, :destroy]
   
   resources :categories, only: [:show]
-  resources :users, only: [:show, :edit, :update]
+  resources :users, only: [:index, :show, :edit, :update]
   root "restaurants#index"
 
   namespace :admin do
