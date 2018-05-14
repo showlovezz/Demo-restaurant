@@ -30,8 +30,12 @@
 		<% @users.each do |user| %>
 			<div class="col-md-3 col-sm-4 col-xs-6 text-center user-item">
 				<%= link_to user_path(user) do %>
-				<!-- 可先利用 Placeholder 如 <img src="http://via.placeholder.com/128x128"> 產生圖片 -->
-					<%= image_tag(user.avatar, class: "img-rounded") %>
+					<!-- 使用blank?判斷avatar欄位為空值或nil時皆會回傳false -->
+					<% if user.avatar.blank? %>
+						<img src="http://via.placeholder.com/128x128">
+					<% else %>
+						<%= image_tag user.avatar, class: "img-rounded" %>
+					<% end %>
 					<h4><%= user.name %></h4>
 				<% end %>
 				<%= render partial: "shared/follow", locals: {user: user} %>
