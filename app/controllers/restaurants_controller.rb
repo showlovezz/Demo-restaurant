@@ -49,7 +49,12 @@ class RestaurantsController < ApplicationController
 		likes = Like.where(restaurant: @restaurant, user: current_user)
 		likes.destroy_all
 		redirect_back(fallback_location: root_path)
-	end 	
+	end
+
+	# GET /restaurants/ranking
+	def ranking
+		@restaurants = Restaurant.order(favorites_count: :desc).limit(10)
+	end
 
  	private
 
